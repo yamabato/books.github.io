@@ -67,7 +67,8 @@ function match(s1,s2){
 }
 
 function gridList(){
-    html = makeHTML(Object.keys(books));
+    html = `<h3>${Object.keys(books).length}件を表示中</h3>`
+    html += makeHTML(Object.keys(books));
     document.getElementById("covers").innerHTML = html;
 }
 
@@ -105,9 +106,11 @@ function search(){
         }
     }
 
+    books_count = Object.keys(books).length + "件";
+
     if (title_checked){
         if (title_result.length){
-            html += `<h3>「タイトル」にヒット</h3>`
+            html += `<h3>「タイトル」にヒット(${title_result.length}/${books_count})</h3>`
             html += makeHTML(title_result);
         }else{
             html += `<h3>「タイトル」にヒットなし</h3>`
@@ -115,7 +118,7 @@ function search(){
     }
     if (author_checked){
         if (author_result.length){
-            html += `<h3>「著者」にヒット</h3>`
+            html += `<h3>「著者」にヒット(${author_result.length}/${books_count})</h3>`
             html += makeHTML(author_result);
         }else{
             html += `<h3>「著者」にヒットなし</h3>`
@@ -123,7 +126,7 @@ function search(){
     }
     if (publisher_checked){
         if (publisher_result.length){
-            html += `<h3>「出版社」にヒット</h3>`
+            html += `<h3>「出版社」にヒット(${publisher_result.length}/${books_count})</h3>`
             html += makeHTML(publisher_result);
         }else{
             html += `<h3>「出版社」にヒットなし</h3>`
@@ -131,7 +134,7 @@ function search(){
     }
     if (series_checked){
         if (series_result.length){
-            html += `<h3>「シリーズ」にヒット</h3>`
+            html += `<h3>「シリーズ」にヒット(${series_result.length}/${books_count})</h3>`
             html += makeHTML(series_result);
         }else{
             html += `<h3>「シリーズ」にヒットなし</h3>`
@@ -139,7 +142,7 @@ function search(){
     }
     if (description_checked){
         if (description_result.length){
-            html += `<h3>「詳細」にヒット</h3>`
+            html += `<h3>「詳細」にヒット(${description_result.length}/${books_count})</h3>`
             html += makeHTML(description_result);
         }else{
             html += `<h3>「詳細」にヒットなし</h3>`
