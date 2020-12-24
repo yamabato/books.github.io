@@ -7,47 +7,32 @@
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="book.js"></script>
         <script type="text/javascript" src="book_data.js"></script>
+        <script type="text/javascript" src="search.js"></script>
 
         <script>
-            function generateText(title){
-                text = "<div class=bookDetail>";
-                data = books[title];
-                text += `<p font-stype:bold font-size:7px>タイトル</p>${title}<br/>`
-                if (data.author!=""){
-                    text += `<p font-stype:bold font-size:7px>著者</p>${data.author}<br/>`
-                }
-                if (data.publisher!=""){
-                    text += `<p font-stype:bold font-size:7px>出版社</p>${data.publisher}<br/>`
-                }
-                if (data.volume!=""){
-                    text += `<p font-stype:bold font-size:7px>巻数</p>${data.volume}<br/>`
-                }
-                if (data.series!=""){
-                    text += `<p font-stype:bold font-size:7px>シリーズ</p>${data.series}<br/>`
-                }
-                if (data.date!=""){
-                    text += `<p font-stype:bold font-size:7px>出版日</p>${data.date}<br/>`
-                }
-                if (data.description!=""){
-                    text += `<p font-stype:bold font-size:7px>詳細</p>${data.description}<br/>`
-                }
-                text += "</div>";
-
-                return text;
-            }
             window.onload = function () {
-                list = "<ul>";
-                for (title of Object.keys(books)){
-                    list += `<li><details><summary><img src=${books[title].cover} alt="表紙"/><p class="title">${title}</p></a></summary>${generateText(title)}</details></li>`
-                }
-                list += "</ul>"
-                document.getElementById("covers").innerHTML = list;
+                gridList();
             };
         </script>
     </head>
 
     <body>
         <h1>書籍検索</h1>
+        <center>
+            <form name="SEARCH">
+                <input type="text" class="input" id="word" name="word"/>
+                <input class="btn-flat-border" type="button" onClick="search()" value="検索"/>
+                <input class="btn-flat-border" type="button" onClick="gridList()" value="一覧表示"/>
+            </form>
+        </center>
+        <center>
+        <input type="checkbox" name="kind" id="title" checked>タイトル
+        <input type="checkbox" name="kind" id="author">著者
+        <input type="checkbox" name="kind" id="publisher">出版社
+        <input type="checkbox" name="kind" id="series">シリーズ
+        <input type="checkbox" name="kind" id="description">詳細
+        </center>
+
         <div id=covers></div>
     </body>
 

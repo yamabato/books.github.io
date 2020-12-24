@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <title>書籍登録システム</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script type="text/javascript" src="book.js"></script>
         <script type="text/javascript" src="book_data.js"></script>
+        <script type="text/javascript" src="book.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -14,7 +14,7 @@
         <h1>書籍登録</h1>
         <center>
             <form name="ISBN">
-                <input type="text" id="isbn" name="isbn"/>
+                <input type="text" class="input" id="isbn" name="isbn"/>
                 <input class="btn-flat-border" type="button" onClick="getBookData()" value="取得"/>
             </form>
         </center>

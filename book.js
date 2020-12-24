@@ -31,17 +31,38 @@ function getBookData(){
                 alert("情報を取得できませんでした");
                 console.log("ERROR");
             } else {
-                cover_url = data[0].summary.cover;
                 title = data[0].summary.title;
                 author = data[0].summary.author;
                 publisher = data[0].summary.publisher;
                 volume = data[0].summary.volume;
                 series = data[0].summary.series;
                 pubdate = data[0].summary.pubdate;
-                description = data[0].onix.CollateralDetail.TextContent[0].Text;
+                if (data[0].onix.CollateralDetail.TextContent != undefined){
+                    description = data[0].onix.CollateralDetail.TextContent[0].Text
+                }else{
+                    description = "";
+                }
                 cover = data[0].summary.cover;
+
+                for (t of Object.keys(books)){
+                    if (books[t].ISBN == isbn){
+                        cover = books[t].cover;
+                        title = t;
+                        author = books[t].author;
+                        publisher = books[t].publisher;
+                        volume = books[t].volume;
+                        series = books[t].series;
+                        pubdate = books[t].date;
+                        description = books[t].description;
+                        break;
+                    }
+                }
+
+                if (cover==""){
+                    cover = "https://pds.exblog.jp/pds/1/201712/21/39/f0323239_18023139.png";
+                }
                 
-                document.getElementById("cover_img").innerHTML = `<img src=${cover_url} alt="表紙"/>`;
+                document.getElementById("cover_img").innerHTML = `<img class="book_cover" src=${cover} alt="表紙"/>`;
                 $("#title").val(title);
                 $("#author").val(author);
                 $("#publisher").val(publisher);
