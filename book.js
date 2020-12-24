@@ -23,6 +23,7 @@ function getBookData(){
     html += `<label for="cover">表紙:</label>
         <input id="cover" class="cp_iptxt" type="text" placeholder="表紙" value=""><br/>`
     html += `<input class="btn-flat-border" type="button" onClick="register()" value="登録"/>`
+    html += `<input class="btn-flat-border" type="button" onClick="deleteBook()" value="削除"/>`
     html+="</center>"
 
     $(function(){
@@ -97,7 +98,22 @@ function register(){
     description = document.getElementById("description").value;
     cover = document.getElementById("cover").value;
     isbn = document.getElementById("isbn").value;
-    books[title] = {"ISBN":isbn,"author":author,"publisher":publisher,"volume":volume,"series":series,"date":pubdate,"description":description,"cover":cover}
+    books[title] = {"ISBN":isbn,"author":author,"publisher":publisher,"volume":volume,"series":series,"date":date,"description":description,"cover":cover}
+    document.getElementById("book").innerHTML = "";
+    document.getElementById("isbn").value = "";
+}
+
+function deleteBook(){
+    isbn = document.getElementById("isbn").value;
+    new_books = {}
+    for (title of Object.keys(books)){
+        if (books[title].ISBN!=isbn){
+            new_books[title] = books[title]
+        }
+    }
+    books = new_books;
+    document.getElementById("book").innerHTML = "";
+    document.getElementById("isbn").value = "";
 }
 
 function download(){

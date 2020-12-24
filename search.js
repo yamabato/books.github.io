@@ -149,5 +149,5 @@ function search(){
         }
     }
     document.getElementById("covers").innerHTML = html;
-
+    document.getElementById("word").value = "";
 }
