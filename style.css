@@ -129,6 +129,7 @@ details summary{
     list-style: none;
     cursor: pointer;
     width: 33%;
+    outline: none;
 }
 .bookDetail{
     background:#87ceeb;
