@@ -1,0 +1,142 @@
+body {
+    background-color: #b0c4de;
+}
+
+h1 {
+    font-size: 60px;
+    color: #332e25;
+    padding: 0.5em;
+    background: #44aeea;
+    border-left: solid 10px #ffaf58;
+}
+
+h3 {
+    font-size: 30px;
+    color: #332e25;
+    padding: 0.5em;
+    background: #71b174;
+    border-left: solid 10px #b3f5de;
+}
+
+h4 {
+    font-size: 35px;
+    color: #332e25;
+    background: #8eb4d9;
+    display: block;
+
+    width: 80%;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+}
+
+#isbn{
+    height: 50px;
+    width: 500px;
+    font-size: 40px;
+
+    background: #b2d6d4;
+    border-radius:10px;
+}
+
+/*
+a {
+    font-size: 35px;
+    color: #332e25;
+    background: #8eb4d9;
+    display: block;
+
+    width: 80%;
+    border-radius: 10px;
+}
+*/
+
+a {
+    font-size: 35px;
+    color: #332e25;
+    background: #8eb4d9;
+    display: block;
+    text-decoration: none;
+
+    width: 80%;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+
+label {
+    font-size: 20px;
+    color: #002633;
+}
+
+table{
+  background:#8eb4d9;
+  border:"2";
+  border-color:white;
+  font-size:30px;
+  width:80%;
+}
+.btn-flat-border {
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  transition: .4s;
+  height: 50px;
+  font-size: 20px;
+}
+
+.btn-flat-border:hover {
+  background: #67c5ff;
+  color: white;
+}
+
+.cp_iptxt {
+    position: relative;
+    width: 40%;
+    height:25px;
+    border-radius:10px;
+}
+.cp_iptxt input[type='text'] {
+    font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.3em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    color: #aaaaaa;
+    border: 1px solid #1b2538;
+    border-radius: 4px;
+}
+
+ul{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    grid-gap: 1rem;
+}
+
+.title{
+    font-size: 20px;
+    width: 200%;
+}
+
+details summary{
+    list-style: none;
+    cursor: pointer;
+    width: 33%;
+}
+.bookDetail{
+    background:#87ceeb;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+img{
+    width: 200%;
+    height:100%;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>書籍登録システム</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="book.js"></script>
+        <script type="text/javascript" src="book_data.js"></script>
+
+        <script>
+            function generateText(title){
+                text = "<div class=bookDetail>";
+                data = books[title];
+                text += `<p font-stype:bold font-size:7px>タイトル</p>${title}<br/>`
+                if (data.author!=""){
+                    text += `<p font-stype:bold font-size:7px>著者</p>${data.author}<br/>`
+                }
+                if (data.publisher!=""){
+                    text += `<p font-stype:bold font-size:7px>出版社</p>${data.publisher}<br/>`
+                }
+                if (data.volume!=""){
+                    text += `<p font-stype:bold font-size:7px>巻数</p>${data.volume}<br/>`
+                }
+                if (data.series!=""){
+                    text += `<p font-stype:bold font-size:7px>シリーズ</p>${data.series}<br/>`
+                }
+                if (data.date!=""){
+                    text += `<p font-stype:bold font-size:7px>出版日</p>${data.date}<br/>`
+                }
+                if (data.description!=""){
+                    text += `<p font-stype:bold font-size:7px>詳細</p>${data.description}<br/>`
+                }
+                text += "</div>";
+
+                return text;
+            }
+            window.onload = function () {
+                list = "<ul>";
+                for (title of Object.keys(books)){
+                    list += `<li><details><summary><img src=${books[title].cover} alt="表紙"/><p class="title">${title}</p></a></summary>${generateText(title)}</details></li>`
+                }
+                list += "</ul>"
+                document.getElementById("covers").innerHTML = list;
+            };
+        </script>
+    </head>
+
+    <body>
+        <h1>書籍検索</h1>
+        <div id=covers></div>
+    </body>
+
+</html>
